@@ -1,0 +1,101 @@
+    thead {
+        color: rgba(153, 153, 153, 1);
+        th{
+            font-weight: 500;
+font-size: 14px;
+            text-align: start;
+            padding:10px;
+        }
+        
+    }
+    td{
+        text-align: start;
+    }
+    img {
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+    .zui-table {
+        border-spacing: 8px;
+        width:1312px;
+        font-family: Metropolis;
+        margin: 0 64px;
+    }
+
+    .zui-table tbody td {
+        color: rgba(95, 95, 95, 1);
+        padding: 10px;
+        // text-shadow: 1px 1px 1px #fff;
+        &.order {
+            color: rgba(10, 143, 115, 1);
+            img{
+                margin-left: 4px;
+            }
+        }
+        &.amount{
+           color: rgba(34, 34, 34, 1);
+        }
+        &.method{
+            img{
+                height:24px;
+                padding:5px;
+                border: 1px solid #ECECEC;
+                box-sizing: border-box;
+                border-radius: 4px;
+            }
+        }
+        .circle {
+            
+            display: inline-block;
+            margin-right: 8px;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            &.Paid {
+                background: #64E1C3;
+            }
+            &.In-Progress {
+                background: #F16500;
+            }
+            &.Failed {
+                background: #FE1B1B;
+            }
+        }
+    }
+
+    tbody tr{
+        font-family: Metropolis;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 22px;
+        height: 80px;
+        border: 1px solid #ECECEC;
+        box-sizing: border-box;
+        box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.16);
+        border-radius: 5px;
+        // background: #FFFFFF;
+    }
+
+    .way{
+        text-align: center;
+        transform: rotate(-90deg);
+        // padding:0px;
+        width: 80px;
+        border-radius: 5px;
+        &.In-Store{
+            line-height: 32px;
+            color: white;
+            background-color: rgba(0, 0, 0, 1);
+        }
+        &.Manual{
+            line-height: 32px;
+            color:white;
+            background-color: #F16500;
+        }
+        &.Online{
+            line-height: 32px;
+            background-color: #ECECEC;
+            color:black;
+        }
+    }
