@@ -1,61 +1,80 @@
-// import MaterialTable from 'material-table';
-import './Table.scss';
-import uk from './icons/uk 1.svg';
+
+import { useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate';
 import arrow from './icons/corner-down-right.svg';
+
+import gb from './icons/uk 1.svg';
+import sv from './icons/sv.svg';
+import no from './icons/no.svg';
+
 import Qliro from './icons/Qliro.svg';
-import sv from './icons/Svenska.svg';
 import visa from './icons/VISA.png';
-// const classNames = require('classnames');
+import trustly from './icons/Trustly.svg';
+import amex from './icons/AMEX.png';
+import paypal from './icons/Paypal.png';
+import { orderType } from './data';
 
-// let circleClasses = classNames(
-//     'circle',
-//     {
-//         'progress': this.props.showBulkActions,
-//         'hidden': !this.props.showBulkActions
-//     }
-// );
+import './Table.scss';
 
-let orders = [
-    {
-        from: 'Online',
-        id: '1234567890',
-        date: '05 maj, 12:33',
-        store: 'Butik x',
-        payment_method: 'Invoice',
-        status: 'Paid',
-        amount: 2160
-    },
-    {
-        from: 'In-Store',
-        id: '1234567890',
-        date: '16 maj, 12:33',
-        store: 'Butik x',
-        payment_method: 'Card, •••• 1234',
-        status: 'In-Progress',
-        amount: 2160
-    },
-    {
-        from: 'Manual',
-        id: '1234567890',
-        date: '16 maj, 12:33',
-        store: 'Butik x',
-        payment_method: 'Card, •••• 1234',
-        status: 'In-Progress',
-        amount: 2160
-    },
-    {
-        from: 'Manual',
-        id: '1234567890',
-        date: '16 maj, 12:33',
-        store: 'Butik x',
-        payment_method: 'Card, •••• 1234',
-        status: 'Failed',
-        amount: 2160
+export enum PaymentProvider {
+    Qliro,
+    Visa,
+    AmericanExpress,
+    PayPal,
+    Trustly
+};
+
+function getCountryIcon(countryCode: string) {
+    switch (countryCode) {
+        case 'no':
+            return no;
+        case 'sv':
+            return sv;
+        case 'gb':
+            return gb;
+
     }
-];
+}
+
+function getPaymentIcon(paymentProvider: PaymentProvider) {
+    switch (paymentProvider) {
+        case PaymentProvider.Qliro:
+            return Qliro;
+        case PaymentProvider.Visa:
+            return visa;
+        case PaymentProvider.Trustly:
+            return trustly;
+        case PaymentProvider.AmericanExpress:
+            return amex;
+        case PaymentProvider.PayPal:
+            return paypal;
+    }
+}
+
 export default function OrderTable(props: any) {
+    const [offset, setOffset] = useState(0);
+    const [data, setData] = useState([]);
+    const [perPage] = useState(5);
+    const [pageCount, setPageCount] = useState(0);
+
+    const getData = () => {
+        const data = props.orders;
+        const slice = data.slice(offset, offset + perPage);
+        setData(slice);
+        setPageCount(Math.ceil(data.length / perPage));
+    }
+    const handlePageClick = (e: any) => {
+        const selectedPage = e.selected;
+        setOffset(selectedPage * perPage);
+    };
+
+    useEffect(() => {
+        getData();
+    }, [offset]);
+
+
     return <>
-        <table className="zui-table zui-table-horizontal">
+        <table className="wide-table wide-table-horizontal" id="ordersTable">
             <thead>
                 <tr>
                     <th className="way"></th>
@@ -68,73 +87,28 @@ export default function OrderTable(props: any) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td className="way">Online</td>
-                    <td className="order">1234567890<img src={arrow}></img></td>
-                    <td>05 maj, 12:33</td>
-                    <td><img src={uk}></img>Butik x</td>
-                    <td className="method"><img src={Qliro}></img>Invoice</td>
-                    <td><div className="circle"></div>Paid</td>
-                    <td className="amount">2160 kr</td>
-                </tr>
-                <tr>
-                    <td className="way">Online</td>
-                    <td className="order">1234567890<img src={arrow}></img></td>
-                    <td>16 maj, 12:33</td>
-                    <td><img src={sv}></img>Butik x</td>
-                    <td className="method"><img src={visa}></img>Card, •••• 1234</td>
-                    <td><div className="circle"></div>In progress</td>
-                    <td className="amount">2160 kr</td>
-                </tr>
-                {orders.map(function (item) {
-                    return <tr>
+                {data.map(function (item: orderType) {
+                    return <tr key={item.id}>
                         <td><p className={`way ${item.from}`}>{item.from}</p></td>
                         <td className="order">{item.id}<img src={arrow}></img></td>
                         <td>{item.date}</td>
-                        <td><img src={sv}></img>{item.store}</td>
-                        <td className="method"><img src={visa}></img>{item.payment_method}</td>
+                        <td><img src={getCountryIcon(item.countryCode)}></img>{item.store}</td>
+                        <td className="method"><img src={getPaymentIcon(item.provider)}></img>{item.payment_method}</td>
                         <td><div className={`circle ${item.status}`}></div>{item.status}</td>
                         <td className="amount">{item.amount} kr</td>
                     </tr>;
                 })}
             </tbody>
         </table>
-        {/* <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
-        <MaterialTable
-            style={{ padding: '0 8px' }}
-            options={{
-                search: false,
-                showTitle: false,
-                headerStyle: {
-                    color: '#999999'
-                }
-            }}
-            columns={
-                [
-                    {
-                        title: "",
-                        field: 'category',
-                        cellStyle: {
-
-                        }
-                    },
-                    {
-                        title: "Order number",
-                        field: 'order',
-                        cellStyle: {
-                            color: 'rgba(10, 143, 115, 1)'
-                        }
-                    },
-                    { title: "Created", field: 'creationDate' },
-                    { title: "Store", field: 'store' },
-                    { title: "Payment method", field: 'store' },
-                    { title: "Payment method", field: 'store' },
-                    { title: "Amount", field: 'amount', currencySetting: { currencyCode: "kr" } },
-                ]}
-            data={[{ category: 'online', order: '1234567890', creationDate: '05 maj, 12:33', store: 1987, amount: 3890 }]}
-        /> */}
+        <ReactPaginate
+            previousLabel={"Back"}
+            nextLabel={"Next"}
+            breakLabel={"..."}
+            pageCount={pageCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination"}
+            activeClassName={"active"} />
     </>;
 }

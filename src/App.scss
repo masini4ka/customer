@@ -1,3 +1,5 @@
+@import './Color_theme.scss';
+
 .App {
 width: 1440px;
 
@@ -11,10 +13,10 @@ width: 1440px;
 }
 
 .second {
-  background-color:#F9F9F9;
+  background-color:$white-smoke;
   height: 169px;
   padding-left: 162px;
-  border: 1px solid #ECECEC;
+  border: 1px solid $light-grey;
 
   .cards {
     font-family: "Metropolis";
@@ -46,7 +48,8 @@ width: 1440px;
 }
 
 .third {
-  background-color:#F9F9F9;
+  background-color:$white-smoke;
+
   h2{
     font-family: "Metropolis";
     font-style: normal;
@@ -60,7 +63,7 @@ width: 1440px;
 }
 
 
-  .font-face-gm {
+  .customer-info {
     font-family: "Metropolis";
     font-style: normal;
     font-weight: 600;

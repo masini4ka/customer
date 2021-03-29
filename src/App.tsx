@@ -2,24 +2,15 @@ import EmailPhone from './icons/EmailPhone.svg';
 import Shipping from './icons/Shipping.svg';
 import Invoice from './icons/Invoice.svg';
 import OrderTable from './Table';
+import { customerOrders } from './data';
+import { Customer } from './data';
 import './App.scss';
-const Customer =
-{
-  name: "Anna",
-  lastName: "Anne",
-  pn: "19901230-4567",
-  email: "annaanne@qliro.com",
-  phone: "+46721234567",
-  shippingAddressLine1: "Qlirovägen 123",
-  shippingAddressLine2: "12345 Stockholm, Sweden",
-  invoiceAddressLine1: "Qlirovägen 123",
-  invoiceAddressLine2: "12345 Stockholm, Sweden"
-};
+
 
 function App() {
   return (
     <div className="App">
-      <h1 className="font-face-gm">{Customer.name} {Customer.lastName} ({Customer.pn})</h1>
+      <h1 className="customer-info">{Customer.name} {Customer.lastName} ({Customer.pn})</h1>
       <div className="second">
         <div className="cards">
           <div className="cards-item">
@@ -44,7 +35,7 @@ function App() {
       </div>
       <div className="third">
         <h2>{Customer.name}'s orders</h2>
-        <OrderTable name="wtf"></OrderTable>
+        <OrderTable orders={customerOrders}></OrderTable>
       </div>
     </div>
   );

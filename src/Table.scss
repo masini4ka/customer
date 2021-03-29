@@ -1,13 +1,15 @@
-    thead {
-        color: rgba(153, 153, 153, 1);
-        th{
-            font-weight: 500;
-font-size: 14px;
-            text-align: start;
-            padding:10px;
-        }
-        
+@import './Color_theme.scss';
+thead {
+    color: $grey;
+
+    th{
+        font-weight: 500;
+        font-size: 14px;
+        text-align: start;
+        padding:10px;
     }
+        
+}
     td{
         text-align: start;
     }
@@ -15,50 +17,49 @@ font-size: 14px;
         margin-right: 5px;
         vertical-align: middle;
     }
-    .zui-table {
+    .wide-table {
+        table-layout: fixed;
         border-spacing: 8px;
         width:1312px;
         font-family: Metropolis;
         margin: 0 64px;
     }
 
-    .zui-table tbody td {
-        color: rgba(95, 95, 95, 1);
+    .wide-table tbody td {
+        color: $medium-grey;
         padding: 10px;
-        // text-shadow: 1px 1px 1px #fff;
         &.order {
-            color: rgba(10, 143, 115, 1);
+            color: $forest-green;
             img{
                 margin-left: 4px;
             }
         }
         &.amount{
-           color: rgba(34, 34, 34, 1);
+           color: $dark-grey;
         }
         &.method{
             img{
                 height:24px;
                 padding:5px;
-                border: 1px solid #ECECEC;
+                border: 1px solid $light-grey;
                 box-sizing: border-box;
                 border-radius: 4px;
             }
         }
         .circle {
-            
             display: inline-block;
             margin-right: 8px;
             border-radius: 50%;
             width: 8px;
             height: 8px;
             &.Paid {
-                background: #64E1C3;
+                background: $forest-green;
             }
             &.In-Progress {
-                background: #F16500;
+                background: $orange;
             }
             &.Failed {
-                background: #FE1B1B;
+                background: $poppy-red;
             }
         }
     }
@@ -70,32 +71,64 @@ font-size: 14px;
         font-size: 14px;
         line-height: 22px;
         height: 80px;
-        border: 1px solid #ECECEC;
+        border: 1px solid $light-grey;
         box-sizing: border-box;
-        box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.16);
+        box-shadow: 4px 4px 16px $grey;
         border-radius: 5px;
-        // background: #FFFFFF;
     }
 
     .way{
-        text-align: center;
-        transform: rotate(-90deg);
-        // padding:0px;
         width: 80px;
         border-radius: 5px;
+        right: 35px;
+        position: relative;
+        text-align: center;
+        transform: rotate(-90deg);
+        line-height: 30px;
         &.In-Store{
-            line-height: 32px;
-            color: white;
-            background-color: rgba(0, 0, 0, 1);
+            color: $white;
+            background-color: $black;
         }
         &.Manual{
-            line-height: 32px;
-            color:white;
-            background-color: #F16500;
+            color:$white;
+            background-color: $orange;
         }
         &.Online{
-            line-height: 32px;
-            background-color: #ECECEC;
-            color:black;
+            background-color: $light-grey;
+            color:$black;
         }
     }
+
+
+    .pagination {
+        margin: 30px 64px;
+        padding: 15px;
+        display: flex;
+        list-style: none;
+        float:right;
+        outline: none !important;
+
+        li {
+            padding: 20px 15px;
+
+            &.next,
+            &.previous{
+                color: $forest-green;
+            }
+
+            &.active{
+                background-color: $forest-green;
+                color: $white;
+                border-radius: 50%;
+            }
+
+            &.disabled{
+                color: $grey
+            }
+
+            a {
+                outline: none;
+                padding: 10px;
+            }
+        }
+      }
