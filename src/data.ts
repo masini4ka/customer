@@ -9,7 +9,9 @@ export interface orderType {
     countryCode: string,
     payment_method: string,
     status: string,
-    amount: number
+    amount: number,
+    currency: string,
+    upsell?: boolean
 }
 export const Customer =
 {
@@ -34,29 +36,33 @@ export const customerOrders: orderType[] = [
         countryCode: "gb",
         payment_method: 'Invoice',
         status: 'Paid',
-        amount: 1
+        amount: 2160,
+        currency: 'kr'
     },
     {
         from: 'In-Store',
-        id: '1234567890',
+        id: '1234568890',
         date: '16 maj, 12:33',
         store: 'Butik x',
         provider: PaymentProvider.Visa,
         countryCode: "sv",
         payment_method: 'Card, •••• 1234',
         status: 'In-Progress',
-        amount: 2
+        amount: 3890,
+        currency: 'kr'
     },
     {
         from: 'Manual',
-        id: '1234567890',
+        id: '1234568790',
         date: '16 maj, 12:33',
         store: 'Butik x',
         provider: PaymentProvider.AmericanExpress,
         countryCode: "no",
         payment_method: 'Card, •••• 1234',
         status: 'In-Progress',
-        amount: 3
+        amount: 1134,
+        currency: 'kr'
+
     },
     {
         from: 'In-Store',
@@ -67,7 +73,8 @@ export const customerOrders: orderType[] = [
         countryCode: "gb",
         payment_method: 'Card, •••• 1234',
         status: 'In-Progress',
-        amount: 4
+        amount: 567,
+        currency: 'kr'
     },
     {
         from: 'Manual',
@@ -78,10 +85,12 @@ export const customerOrders: orderType[] = [
         countryCode: "sv",
         payment_method: 'PayPal',
         status: 'Failed',
-        amount: 5
+        amount: 5,
+        currency: 'kr'
+
     },
     {
-        from: 'In-Store',
+        from: 'Manual',
         id: '1234555590',
         date: '16 maj, 12:33',
         store: 'Butik x',
@@ -89,7 +98,9 @@ export const customerOrders: orderType[] = [
         countryCode: "no",
         payment_method: 'Trustly',
         status: 'Failed',
-        amount: 6
+        amount: 6,
+        currency: 'kr'
+
     },
     {
         from: 'In-Store',
@@ -100,10 +111,11 @@ export const customerOrders: orderType[] = [
         countryCode: "no",
         payment_method: 'Trustly',
         status: 'Paid',
-        amount: 7
+        amount: 7,
+        currency: 'kr'
     },
     {
-        from: 'In-Store',
+        from: 'Online',
         id: '12345676768',
         date: '16 maj, 12:33',
         store: 'Butik x',
@@ -111,18 +123,20 @@ export const customerOrders: orderType[] = [
         countryCode: "sv",
         payment_method: 'Trustly',
         status: 'Paid',
-        amount: 8
+        amount: 88,
+        currency: 'kr'
     },
     {
         from: 'In-Store',
         id: '1234564540',
         date: '16 maj, 12:33',
         store: 'Butik x',
-        provider: PaymentProvider.Trustly,
+        provider: PaymentProvider.Visa,
         countryCode: "gb",
-        payment_method: 'Trustly',
+        payment_method: 'Card, •••• 1234',
         status: 'Paid',
-        amount: 9
+        amount: 9,
+        currency: 'kr'
     },
     {
         from: 'In-Store',
@@ -133,7 +147,8 @@ export const customerOrders: orderType[] = [
         countryCode: "no",
         payment_method: 'Trustly',
         status: 'Paid',
-        amount: 10
+        amount: 10,
+        currency: 'kr'
     },
     {
         from: 'In-Store',
@@ -144,7 +159,8 @@ export const customerOrders: orderType[] = [
         countryCode: "no",
         payment_method: 'Trustly',
         status: 'Paid',
-        amount: 11
+        amount: 1154,
+        currency: 'kr'
     },
     {
         from: 'In-Store',
@@ -155,7 +171,8 @@ export const customerOrders: orderType[] = [
         countryCode: "no",
         payment_method: 'Trustly',
         status: 'Paid',
-        amount: 12
+        amount: 12,
+        currency: 'kr'
     },
     {
         from: 'Online',
@@ -166,18 +183,20 @@ export const customerOrders: orderType[] = [
         countryCode: "gb",
         payment_method: 'Invoice',
         status: 'Paid',
-        amount: 13
+        amount: 13,
+        currency: 'kr'
     },
     {
         from: 'In-Store',
         id: '12345678901',
         date: '16 maj, 12:33',
         store: 'Butik x',
-        provider: PaymentProvider.Trustly,
-        countryCode: "no",
-        payment_method: 'Trustly',
+        provider: PaymentProvider.Qliro,
+        countryCode: "gb",
+        payment_method: 'Invoice',
         status: 'Paid',
-        amount: 14
+        amount: 1488,
+        currency: 'kr'
     },
     {
         from: 'Online',
@@ -188,7 +207,8 @@ export const customerOrders: orderType[] = [
         countryCode: "no",
         payment_method: 'Trustly',
         status: 'Paid',
-        amount: 15
+        amount: 15,
+        currency: 'kr'
     }
 
 ];
