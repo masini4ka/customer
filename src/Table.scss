@@ -106,7 +106,7 @@ thead {
         display: flex;
         list-style: none;
         float:right;
-        outline: none !important;
+        outline: none;
 
         li {
             padding: 20px 15px;
@@ -131,4 +131,11 @@ thead {
                 padding: 10px;
             }
         }
+      }
+      .upsell{
+          position:relative;
+          top: 35px;
+          left: 25px;
+          border: 1px solid $light-grey;
+          border-radius: 50%;
       }

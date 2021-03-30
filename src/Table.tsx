@@ -6,7 +6,7 @@ import arrow from './icons/corner-down-right.svg';
 import gb from './icons/uk 1.svg';
 import sv from './icons/sv.svg';
 import no from './icons/no.svg';
-
+import upsell from './icons/Upsell.svg';
 import Qliro from './icons/Qliro.svg';
 import visa from './icons/VISA.png';
 import trustly from './icons/Trustly.svg';
@@ -89,13 +89,16 @@ export default function OrderTable(props: any) {
             <tbody>
                 {data.map(function (item: orderType) {
                     return <tr key={item.id}>
-                        <td><p className={`way ${item.from}`}>{item.from}</p></td>
+                        <td>
+                            {item.upsell && (<img src={upsell} className="upsell"></img>)}
+                            <p className={`way ${item.from}`}>{item.from}</p>
+                        </td>
                         <td className="order">{item.id}<img src={arrow}></img></td>
                         <td>{item.date}</td>
                         <td><img src={getCountryIcon(item.countryCode)}></img>{item.store}</td>
                         <td className="method"><img src={getPaymentIcon(item.provider)}></img>{item.payment_method}</td>
                         <td><div className={`circle ${item.status}`}></div>{item.status}</td>
-                        <td className="amount">{item.amount} kr</td>
+                        <td className="amount">{item.amount} {item.currency}</td>
                     </tr>;
                 })}
             </tbody>
@@ -103,7 +106,6 @@ export default function OrderTable(props: any) {
         <ReactPaginate
             previousLabel={"Back"}
             nextLabel={"Next"}
-            breakLabel={"..."}
             pageCount={pageCount}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}

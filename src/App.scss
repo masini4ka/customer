@@ -3,20 +3,11 @@
 .App {
 width: 1440px;
 
-.header {
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-  height: 88px;
-}
-
-.second {
+.customer-section {
   background-color:$white-smoke;
   height: 169px;
   padding-left: 162px;
-  border: 1px solid $light-grey;
+  border-bottom: 1px solid $light-grey;
 
   .cards {
     font-family: "Metropolis";
@@ -24,9 +15,7 @@ width: 1440px;
     display: flex;
     justify-content: flex-start;
     padding-top: 44px;
-    // background-color: green;
     &-item{
-      // background-color: greenyellow;
       width: 230px;
       padding-right: 184px;
       p {
@@ -47,7 +36,7 @@ width: 1440px;
   }
 }
 
-.third {
+.orders-section{
   background-color:$white-smoke;
 
   h2{
@@ -63,7 +52,7 @@ width: 1440px;
 }
 
 
-  .customer-info {
+  .header-info {
     font-family: "Metropolis";
     font-style: normal;
     font-weight: 600;
@@ -74,7 +63,5 @@ width: 1440px;
     margin-left: 68px;
     vertical-align: top;
   }
-
-  
 
 }
