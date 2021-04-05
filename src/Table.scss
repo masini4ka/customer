@@ -64,40 +64,58 @@ thead {
         }
     }
 
-    tbody tr{
-        font-family: Metropolis;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 22px;
-        height: 80px;
-        border: 1px solid $light-grey;
-        box-sizing: border-box;
-        box-shadow: 4px 4px 16px $grey;
-        border-radius: 5px;
+    tbody {
+        tr{
+            font-family: Metropolis;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 22px;
+            height: 80px;
+            border: 1px solid $light-grey;
+            box-sizing: border-box;
+            box-shadow: 4px 4px 16px $grey;
+            border-radius: 5px;
+        }
+        .way{
+            width: 80px;
+            border-radius: 5px;
+            right: 35px;
+            position: relative;
+            text-align: center;
+            transform: rotate(-90deg);
+            line-height: 30px;
+            &.In-Store{
+                color: $white;
+                background-color: $black;
+            }
+            &.Manual{
+                color:$white;
+                background-color: $orange;
+            }
+            &.Online{
+                background-color: $light-grey;
+                color:$black;
+            }
+        }
+    
+        .flex{
+         display: flex;
+         width: 100%;
+        }
+
+        .upsell{
+            position:relative;
+            border: 1px solid $light-grey;
+            border-radius: 50%;
+            right: 60px;
+            width: 20px;
+            height: 20px;
+            top: 20px;
+        }
     }
 
-    .way{
-        width: 80px;
-        border-radius: 5px;
-        right: 35px;
-        position: relative;
-        text-align: center;
-        transform: rotate(-90deg);
-        line-height: 30px;
-        &.In-Store{
-            color: $white;
-            background-color: $black;
-        }
-        &.Manual{
-            color:$white;
-            background-color: $orange;
-        }
-        &.Online{
-            background-color: $light-grey;
-            color:$black;
-        }
-    }
+    
 
 
     .pagination {
@@ -131,11 +149,4 @@ thead {
                 padding: 10px;
             }
         }
-      }
-      .upsell{
-          position:relative;
-          top: 35px;
-          left: 25px;
-          border: 1px solid $light-grey;
-          border-radius: 50%;
       }

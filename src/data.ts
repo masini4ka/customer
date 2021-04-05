@@ -37,7 +37,8 @@ export const customerOrders: orderType[] = [
         payment_method: 'Invoice',
         status: 'Paid',
         amount: 2160,
-        currency: 'kr'
+        currency: 'kr',
+        upsell: true
     },
     {
         from: 'In-Store',
@@ -49,7 +50,8 @@ export const customerOrders: orderType[] = [
         payment_method: 'Card, •••• 1234',
         status: 'In-Progress',
         amount: 3890,
-        currency: 'kr'
+        currency: 'kr',
+        upsell: true
     },
     {
         from: 'Manual',
@@ -62,7 +64,6 @@ export const customerOrders: orderType[] = [
         status: 'In-Progress',
         amount: 1134,
         currency: 'kr'
-
     },
     {
         from: 'In-Store',

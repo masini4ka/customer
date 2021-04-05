@@ -89,10 +89,11 @@ export default function OrderTable(props: any) {
             <tbody>
                 {data.map(function (item: orderType) {
                     return <tr key={item.id}>
-                        <td>
-                            {item.upsell && (<img src={upsell} className="upsell"></img>)}
+                        <td className="flex">
                             <p className={`way ${item.from}`}>{item.from}</p>
+                            {item.upsell && (<img src={upsell} className="upsell"></img>)}
                         </td>
+                        {/* <td className="method"><div className={`way ${item.from}`}><p>{item.from}</p><img src={upsell}></img></div></td> */}
                         <td className="order">{item.id}<img src={arrow}></img></td>
                         <td>{item.date}</td>
                         <td><img src={getCountryIcon(item.countryCode)}></img>{item.store}</td>
