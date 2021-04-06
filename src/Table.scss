@@ -1,6 +1,5 @@
 @import './Color_theme.scss';
 thead {
-    color: $grey;
 
     th{
         font-weight: 500;
@@ -125,6 +124,7 @@ thead {
         list-style: none;
         float:right;
         outline: none;
+        font-family: Metropolis;
 
         li {
             padding: 20px 15px;
